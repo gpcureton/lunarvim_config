@@ -358,7 +358,7 @@ lvim.plugins = {
               -- or leave it empty to use the default settings
               -- refer to the configuration section below
               -- keywords recognized as todo comments
-              -- keywords = {
+              keywords = {
               --   FIX = {
               --     icon = " ", -- icon used for the sign, and in search results
               --     color = "error", -- can be a hex color, or a named color (see below)
@@ -370,10 +370,10 @@ lvim.plugins = {
               --   WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
               --   PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
               --   NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-              --   DEBUG = { icon = " ", color = "warning", alt = { "DEBUGGPC","DEBUG_GPC","DEBUG-GPC","DEBUG GPC" } },
-              --   ACTION = { icon = " ", color = "hint", alt = { "ACTION","Action" } },
-              --   ACTION_DONE = { icon = " ", color = "info", alt = { "ACTION DONE","Action Done" } },
-              -- },
+                DEBUG = { icon = " ", color = "warning", alt = { "DEBUGGPC","DEBUG_GPC","DEBUG-GPC","DEBUG GPC" } },
+                ACTION = { icon = " ", color = "hint", alt = { "ACTION","Action" } },
+                ACTION_DONE = { icon = " ", color = "info", alt = { "ACTION DONE","Action Done" } },
+              },
               -- merge_keywords = true, -- when true, custom keywords will be merged with the defaults
         }
         end
