@@ -345,7 +345,38 @@ lvim.plugins = {
     {
         "simrat39/symbols-outline.nvim",
         config = function()
-            require('symbols-outline').setup()
+            require('symbols-outline').setup {
+                symbol_blacklist = {
+                    -- 'File',
+                    -- 'Module',
+                    -- 'Namespace',
+                    -- 'Package',
+                    -- 'Class',
+                    -- 'Method',
+                    'Property',
+                    'Field',
+                    -- 'Constructor',
+                    'Enum',
+                    -- 'Interface',
+                    -- 'Function',
+                    'Variable',
+                    'Constant',
+                    'String',
+                    'Number',
+                    'Boolean',
+                    -- 'Array',
+                    -- 'Object',
+                    -- 'Key',
+                    -- 'Null',
+                    'EnumMember',
+                    -- 'Struct',
+                    -- 'Event',
+                    -- 'Operator',
+                    -- 'TypeParameter',
+                    -- 'Component',
+                    -- 'Fragment',
+                }
+            }
         end,
     },
     {
@@ -375,7 +406,7 @@ lvim.plugins = {
                 ACTION_DONE = { icon = " ", color = "info", alt = { "ACTION DONE","Action Done" } },
               },
               -- merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-        }
+            }
         end
     },
     {
