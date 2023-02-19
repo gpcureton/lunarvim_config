@@ -39,21 +39,25 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
 --   -- for input mode
---   i = {
+  i = {
 --     ["<C-j>"] = actions.move_selection_next,
 --     ["<C-k>"] = actions.move_selection_previous,
 --     ["<C-n>"] = actions.cycle_history_next,
 --     ["<C-p>"] = actions.cycle_history_prev,
---   },
+    ["<C-q>"] = actions.smart_send_to_qflist,
+    ["<M-q>"] = actions.smart_add_to_qflist,
+  },
 --   -- for normal mode
---   n = {
+  n = {
 --     ["<C-j>"] = actions.move_selection_next,
 --     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+    ["<C-q>"] = actions.smart_send_to_qflist,
+    ["<M-q>"] = actions.smart_add_to_qflist,
+  },
+}
 
 -- Quickfix and Location lists
 -- keymap("n", "<C-q>", ":lua ToggleQFList()<CR>")
@@ -64,11 +68,12 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- Navigating items in the quickfix list
 vim.keymap.set("n", "<M-j>", ":cnext<CR>", opts)
 vim.keymap.set("n", "<M-k>", ":cprev<CR>", opts)
+vim.keymap.set("n", "<leader>qc", ":cexpr[]<CR>", opts)
 
 -- Navigating items in the location list
 vim.keymap.set("n", "<leader>k", ":lprev<CR>", opts)
 vim.keymap.set("n", "<leader>j", ":lnext<CR>", opts)
-
+vim.keymap.set("n", "<leader>lc", ":lexpr[]<CR>", opts)
 
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "symbols")
@@ -240,7 +245,7 @@ lvim.plugins = {
         requires = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope.nvim',
-            'kyazdani42/nvim-web-devicons',
+            'nvim-tree/nvim-web-devicons'
         },
         config = function()
             require("octo").setup()
