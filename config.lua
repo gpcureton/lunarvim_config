@@ -81,6 +81,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "github")
   pcall(telescope.load_extension, "vimwiki")
   pcall(telescope.load_extension, "projects")
+  pcall(telescope.load_extension, "live_grep_args")
   -- any other extensions loading
 end
 
@@ -293,6 +294,9 @@ lvim.plugins = {
     -- },
     {
         "nvim-telescope/telescope-symbols.nvim",
+    },
+    {
+        "nvim-telescope/telescope-live-grep-args.nvim",
     },
     {
         "nvim-telescope/telescope-bibtex.nvim",
