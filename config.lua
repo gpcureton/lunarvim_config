@@ -345,6 +345,17 @@ lvim.plugins = {
     --         require("lsp-rooter").setup()
     --     end,
     -- },
+-- Lua
+    {
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("project_nvim").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    },
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",
