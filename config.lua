@@ -104,10 +104,11 @@ lvim.builtin.which_key.mappings["t"] = {
 -- Add a new binding to an existing WhichKey prefix by inserting into the appropriate table
 local whichkey_search = lvim.builtin.which_key.mappings["s"]
 table.insert(whichkey_search, {w = { "<cmd>pwd<cr>", "Current Directory" }})
+table.insert(whichkey_search, {s = { ":lua require('telescope.builtin').grep_string()<CR>", "Search word under cursor" }})
 
 local whichkey_buf = lvim.builtin.which_key.mappings["b"]
 -- local fuzzy_buf_opt = require('telescope.themes').get_dropdown({height=10, previewer=true})
-table.insert(whichkey_buf, {s = { ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", "Fuzzy-find in current buffer" }})
+table.insert(whichkey_buf, {s = { ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", "Search in current buffer" }})
 
 -- keymap("n", "<Leader>f", ":lua require('telescope.builtin').find_files()<CR>", opts)
 -- keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
